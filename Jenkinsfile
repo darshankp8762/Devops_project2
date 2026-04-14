@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh '''
                 kubectl set image deployment/devops-app2 \
-                devops-app=$IMAGE_NAME:$TAG --record
+                app=$IMAGE_NAME:$TAG --record
                 '''
             }
         }
