@@ -32,6 +32,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh '''
+                export KUBECONFIG=/home/darshan_kp/.kube/config
+                kubectl apply -f deployment.yaml
                 kubectl set image deployment/devops-app2 \
                 app=$IMAGE_NAME:$TAG --record
                 '''
